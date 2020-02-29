@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+import arparse 
+import lector
+import contar_palabras
+
+def obten_cita(texto, inicio, cuenta)
+   lista = texto.split(" ")
+   longitud  = len(lista)
+   if ((inicio+cuenta)< longitud):
+      lista_palabras = lista()
+      cita = " ".join(lista_palabras)
+   else 
+      cita = ""
+   return cita
+
+
+def main(archivo , archivo_stopwords, incio, cuenta):
+   texto  lector.leer_earchivo(archivo)
+   cita = obten_cita(texto, inicio, cuenta)
+   print("cita:", cita)
+   stopwords = contar_palabras.leer_stopwords (archivo_stopwords)
+   contar_palabras.contar(citar.stopwords)
+
+if __name__= 
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-a', '--archivo', dest='archivo', help="nombre de archivo", required=True)
+    parser.add_argument('-s', '--stopwords', dest='stopwords', help="stopwords", required=False, default = "Spanish_Stopwords.txt")
+    args = parser.parse_args()
+    archivo = args.archivo
+    stopwords = args.stopwords
+    main(archivo, stopwordZ
