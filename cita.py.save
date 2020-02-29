@@ -1,0 +1,26 @@
+#/usr/bin/python3
+import argparse
+import lector 
+import contar_palabras
+
+def obten_cita(texto, inicio, cuenta):
+  lista  = texto.split()
+  longitud = len(lista)
+  if ((incio+cuenta)< longitud)
+     lista_palabras = lista[inicio:inicio+cuenta]
+     cita = " ".join(lista_palabras)
+  else
+     cita = " "
+  return cita 
+
+def main(archivo, inicio, cuenta):
+  texto= lector.leer_archivo(archivo)
+  obten_cita(t
+exto, incio, cuenta)
+  print("cita:", cita)
+
+if __name__ == "__main__":
+
+  parse = argparse.ArgumentParse()
+  parse.add_argument('a', "--archivo", dest='archivo', help= )
+
