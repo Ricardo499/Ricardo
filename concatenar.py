@@ -1,49 +1,29 @@
 #!/usr/bin/python3
+#./concatenar -n /tmp/episodio1.txt -n /tmp/episodio2.txt -o Ep1yEp2.txt
+#o es output
+
+import lector
 import argparse
 
-#def leer_archivo( archivo1, archivo2 ):
+def main(nombres, output):
+  listado=[]
+  for nombre in nombres:
+    texto = lector.leer_archivo(nombre)
+    listado.append(texto)
+  textote = "\n". join(listado)
+  
+  file = open(output,"w")
    
-'''try:
-        with open(archivo, "r") as fh:
-           texto = fh.read()
-           linens = texto.splitlines()
-           texto_limpio=" ".join(linens)
-   except:
-        texto_limpio=" "
-   return texto_limpio 
-   archivo1 = "direccion"
-   archivo2 = "direccion"
- 
-   lista1 = list (archivo1)
-   lista2 = list (archivo2)
- 
-   archivo3=open('datos.txt','w')
- 
-   for x in range(2):
-       datos.append.lista1[0]
-       datos.append.lista2[0]
-       archi.write(datos)
-       datos = []
-   return datos 
-
-
- def main(archivo):
-   for nombre in nombres:
-      print(nombre)
-'''
-def main(archivo, archivos):
-   for archivo in archivos:
-      print (archivo)
-      texto = lectorleer_archivo(archivo)
-      listado.append(texto)
-   print(listado)
-   textote= " ".join(listado)
+  file.write(textote)
+  file.close()
+  print("Se creo el archivo " + output)
+      
 if __name__ == "__main__":
-   parser = argparser.Argparser()
-   parser.add_argument('-n', '--archivo', dest='archivo', help="Texto unido", \
-                       action="append", required= True)
-   parser.add_argument('-o', '--output', dest='output', help="archivo de salida", \
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-n', '--nombre', dest='nombres', help="nombre de personajes", action="append", required=True)
+    parser.add_argument('-o', '--output', dest='output', help="archivo de salida", \
                         required= True)
-   args = parser.parse_args()
-   archivo= args.archivos
-   main(archivo)
+    args = parser.parse_args()
+    nombres = args.nombres
+    output = args.output
+    main(nombres, output)
